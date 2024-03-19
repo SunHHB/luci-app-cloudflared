@@ -25,7 +25,7 @@ e.default=0
 e.rmempty=false
 
 e=t:option(DynamicList,"token",translate('隧道 Token'),
-	translate("需要先去官网创建隧道，再复制以eyJh开头的一长串token值，注意复制正确否则会启动失败<br>关于没有信用卡可以使用命令创建隧道 ：<a href='https://blog.outv.im/2021/cloudflared-tunnel/' target='_blank'>教程1</a>&nbsp;&nbsp;&nbsp;<a href='https://zhuanlan.zhihu.com/p/621870045' target='_blank'>教程2</a>"))
+	translate("需要先去官网创建隧道，再复制以eyJh开头的一长串token值，注意复制正确否则会启动失败！<br>"))
 e.placeholder = "eyJhIjoiMzQ3NTNhNDBlZTg4NTYzMDU5YmUzN2U2ZDY4YjEzY2QiLCJ0IjoiNTJkMjkwYTktNmFiNy00NDM5LThlODYtMzhmYTI0NTBhZjNhIiwicyI6IlptRXlOekl4TURZdFpUa3dPUzAwTnprM0xUbGlaR1l0TWpNNVpUUTBNV0k0TTJNMSJ9"
 e:depends("cmdenabled", 0)
 
@@ -42,7 +42,6 @@ loglevel:value("warn")
 loglevel:value("error")
 loglevel:value("fatal")
 loglevel:depends("cmdenabled", 0)
-
 
 e=t:option(DummyValue,"opennewwindow" , 
 	translate("<input type=\"button\" class=\"cbi-button cbi-button-apply\" value=\"cloudflare.com\" onclick=\"window.open('https://one.dash.cloudflare.com')\" />"))
