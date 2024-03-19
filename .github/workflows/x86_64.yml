@@ -25,8 +25,8 @@ jobs:
 
       - name: copy bin
         run: |
-        mkdir -p luci-app-cloudflared/root/usr/bin
-        mv -f cloudflaredbin/cloudflared_x86_64 luci-app-cloudflared/root/usr/bin/cloudflared
+         mkdir -p luci-app-cloudflared/root/usr/bin
+         mv -f cloudflaredbin/cloudflared_x86_64 luci-app-cloudflared/root/usr/bin/cloudflared
         
       - name: Build
         uses: SunHHB/gh-action-sdk@go1.21
