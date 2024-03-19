@@ -50,9 +50,16 @@ local tagfile = io.open("/tmp/cloudflared_time", "r")
   e.cfram = "Unknown"
   end
   
-  local command4 = io.popen("([ -s /tmp/cloudflarednew.tag ] && cat /tmp/cloudflarednew.tag ) || ( curl -L -k -s --connect-timeout 3 --user-agent 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36' https://api.github.com/repos/cloudflare/cloudflared/releases/latest | grep tag_name | sed 's/[^0-9.]*//g' >/tmp/cloudflarednew.tag && cat /tmp/cloudflarednew.tag )")
-  e.cfnewtag = command4:read("*all")
+  local command4 = io.popen("([ -s /tmp/cloudflared.tag ] && cat /tmp/cloudflared.tag ) || (echo `/usr/bin/cloudflared version | awk '{print $3}'` > /tmp/cloudflared.tag && cat /tmp/cloudflared.tag)")
+  e.cftag = command4:read("*all")
   command4:close()
+  if e.cftag == "" then
+  e.cftag = "Unknown"
+  end
+  
+  local command5 = io.popen("([ -s /tmp/cloudflarednew.tag ] && cat /tmp/cloudflarednew.tag ) || ( curl -L -k -s --connect-timeout 3 --user-agent 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36' https://api.github.com/repos/cloudflare/cloudflared/releases/latest | grep tag_name | sed 's/[^0-9.]*//g' >/tmp/cloudflarednew.tag && cat /tmp/cloudflarednew.tag )")
+  e.cfnewtag = command5:read("*all")
+  command5:close()
   if e.cfnewtag == "" then
   e.cfnewtag = "Unknown"
   end
