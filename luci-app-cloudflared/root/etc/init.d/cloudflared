@@ -75,6 +75,9 @@ start_instance() {
 
 start_service() {
 	config_load 'cloudflared'
+        sysctl -w net.ipv4.ping_group_range="0 429296729"
+        sysctl -w net.core.rmem_max=2500000
+        sleep 20
 	config_foreach start_instance 'cloudflared'
 }
 
