@@ -29,7 +29,7 @@ jobs:
          mv -f cloudflaredbin/cloudflared_x86_64 luci-app-cloudflared/root/usr/bin/cloudflared
         
       - name: Build
-        uses: SunHHB/gh-action-sdk@go1.21
+        uses: SunHHB/gh-action-sdk@go1.22
         env:
           ARCH: ${{ matrix.arch }}-${{ matrix.sdk }}
           FEEDNAME: packages_ci
