@@ -18,7 +18,6 @@ jobs:
           - aarch64_generic
           - x86_64
         sdk:
-          - openwrt-21.02
           - openwrt-22.03
 
     steps:
