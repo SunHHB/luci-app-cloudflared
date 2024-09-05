@@ -38,7 +38,7 @@ jobs:
 
       - name: Create compress files
         run: |
-          tar -zcvf ${{ matrix.sdk }}-${{ matrix.arch }}.tar.gz -C bin/packages/${{ matrix.arch }}/ packages_ci .
+          tar -zcvf ${{ matrix.sdk }}-${{ matrix.arch }}.tar.gz -C bin/packages/${{ matrix.arch }}/packages_ci .
 
       - name: Upload packages
         uses: ncipollo/release-action@v1
